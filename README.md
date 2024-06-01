@@ -16,7 +16,7 @@ You must use **snake_case** when defining functions and variables names.
 
 How to check the types of our variables while defining a function ? **Single parameter and return type**. 
 ```php
-function multiply_number(int $num1, int $num2) : int {
+function multiply(int $num1, int $num2) : int {
   return $num1 * $num2;
 }
 ```
@@ -28,4 +28,12 @@ function multiply(int|float $a, int|float $b): int|float
 {
   return $a * $b;
 }
+```
+
+There are also many built-in functions which allow to quickly check a type, such as ```is_numeric($your_variable)```
+
+**Casting**: <br>
+There is, as in C#, a quick way to cast a type for a variable.
+```php
+  return (int) $a * (int) $b;
 ```
