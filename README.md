@@ -12,6 +12,75 @@ function multiply_numbers($num1, $num2){
 All PHP variables must have a `$` as the first letter. It can be followed by an `_` character. <br> 
 You must use **snake_case** when defining functions and variables names.
 
+### Arrays and Lists
+In PHP, there are some differences with a few languages: <br>
+
+#### The array definition
+
+First way to define an array
+```php
+$months = array('January', "February", "March");
+$months = ['January', "February", "March"];
+```
+Note: Index 0 will be equal to January, 1 will be equal to "February", etc.
+
+The second is by **giving the index in the definition**:
+```php
+$months = array(1 => 'January', 3 => "March", "February");
+$months = [1 => 'January', 3 => "March", "February"];
+```
+Note: By defining explicitly the first index as 1, the array will start at 1 and end at 3. Also note that you can define your key&value without caring about the order.
+
+Arrays in PHP **can also use string as keys and values**. Int and string are the only types that you can use as a key.
+```php
+$months = array(
+  "first" => 'January', 
+  "second" => "February", 
+  3 => "March" //That's also ok to use a different type
+  );
+```
+I guess, they're a combination of arrays and dictionnaries. 
+<br> More informations: [Arrays in PHP](https://www.php.net/manual/fr/language.types.array.php)
+
+Something quite strange, you can access the elements of a returned array directly when you call a function:
+```php
+<?php
+function getArray() {
+    return array(1, 2, 3);
+}
+
+$secondElement = getArray()[1];
+?>
+```
+
+**Adding elements to an array**:
+```php
+<?php
+$arr = array(5 => 1, 12 => 2);
+
+$arr[] = 56;    // Identique à $arr[13] = 56;
+                // à cet endroit du script
+```
+
+To end the explanations, here is a more complex example:
+```php
+<?php
+$array = array(
+    "foo" => "bar",
+    42    => 24,
+    "multi" => array(
+         "dimensional" => array(
+             "array" => "foo"
+         )
+    )
+);
+
+var_dump($array["foo"]);
+var_dump($array[42]);
+var_dump($array["multi"]["dimensional"]["array"]);
+?>
+```
+
 ### Check the type
 
 How to check the types of our variables while defining a function ? **Single parameter and return type**. 
