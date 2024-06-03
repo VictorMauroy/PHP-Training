@@ -112,12 +112,12 @@ There is, as in C#, a quick way to cast a type for a variable.
 
 ### Attributes, methods and data access
 
-Here is a classic class definition:
+#### How to define a class
 ```php
 class Survivor {
 
   //Defining an attribute
-  private $_name;
+  public $_name;
   private $_speed = 1.0; // with default value
 
   // Defining a constructor
@@ -139,9 +139,79 @@ The following shows how you should define a new object and access its methods or
 ```php
 $jake = new Survivor("Jake", 1.2); // Create a new object
 
-echo $jake->_name; // Accessing a property
+echo $jake->_name; // Accessing a property. If it's public
 
 $jake->getPresentation(); // Calling a method.
 ```
 
 Note that you won't access the properties or methods by using a dot `.` like others languages.
+
+#### Getter and setter
+```php
+class Survivor {
+
+  private $_name;
+  private function getName(){ 
+    return $this->_name; 
+  }
+  private function setName($new_name){ 
+    return $this->_name = $new_name; 
+  }
+
+  public function __construct($name) 
+  {
+    $this->_name = $name;
+    // or
+    $this->setName($name);
+  }
+}
+```
+
+Note: Basic visibility has the same names: `private`, `protected` and `public`.
+
+#### Inheritance (parents and childrens classes)
+```php
+class Character 
+{
+  protected $_name;
+
+  public function __construct($name) 
+  {
+    $this->_name = $name;
+  }
+
+  public function sayPresentation() {
+    echo "That character name is: $this->_name";
+  }
+}
+
+class Player extends Character 
+{
+  private $_level;
+
+  public function __construct($name, $level) 
+  {
+    parent::__construct($name); 
+    $this->_level = $level;
+  }
+
+  // Defining again a presentation will override the one in the parent class when calling it with a Player object.
+  public function sayPresentation() {
+    echo "That player name is: $this->_name and its level is $this->_level";
+  }
+}
+```
+
+Note that when calling a parent method, you must use the `::` operator with the `parent` keyword. <br>
+Don't forget to use `extends` to define an inheritance.
+
+Here are some examples about how to use thoses classes:
+```php
+$character = new Character("MikaelaNPC"); 
+$character->sayPresentation(); 
+// output: That character name is: MikaelaNPC
+
+$player = new Player("Jake", 10);
+$player->sayPresentation();
+// output: That character name is: Jake and its level is 10
+```
