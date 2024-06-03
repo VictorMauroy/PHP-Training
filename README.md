@@ -106,3 +106,42 @@ There is, as in C#, a quick way to cast a type for a variable.
 ```php
   return (int) $a * (int) $b;
 ```
+
+
+## Les classes
+
+### Attributes, methods and data access
+
+Here is a classic class definition:
+```php
+class Survivor {
+
+  //Defining an attribute
+  private $_name;
+  private $_speed = 1.0; // with default value
+
+  // Defining a constructor
+  public function __construct($name, $speed) 
+  {
+    $this->_name = $name;
+    $this->_speed = $speed;
+  }
+
+  // Defining a custom method
+  public function getPresentation() 
+  {
+    echo "The survivor $this->_name can run at the speed of: " . $this->_speed;
+  }
+}
+```
+
+The following shows how you should define a new object and access its methods or properties:
+```php
+$jake = new Survivor("Jake", 1.2); // Create a new object
+
+echo $jake->_name; // Accessing a property
+
+$jake->getPresentation(); // Calling a method.
+```
+
+Note that you won't access the properties or methods by using a dot `.` like others languages.
