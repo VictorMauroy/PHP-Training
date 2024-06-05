@@ -29,7 +29,7 @@ The second is by **giving the index in the definition**:
 $months = array(1 => 'January', 3 => "March", "February");
 $months = [1 => 'January', 3 => "March", "February"];
 ```
-Note: By defining explicitly the first index as 1, the array will start at 1 and end at 3. Also note that you can define your key&value without caring about the order.
+Note: By defining explicitly the first index as 1, the array will start at 1 and end at 4. Also note that you can define your key&value without caring about the order, but add a value without a paired key will result in adding it after the last one (in the current case, February was added at index 4).
 
 Arrays in PHP **can also use string as keys and values**. Int and string are the only types that you can use as a key.
 ```php
@@ -215,3 +215,5 @@ $player = new Player("Jake", 10);
 $player->sayPresentation();
 // output: That character name is: Jake and its level is 10
 ```
+
+#### Static methods
