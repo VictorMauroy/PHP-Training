@@ -109,6 +109,36 @@ $client_name = $_SESSION["name"];
 ```
 Note that `$_POST` and `$_GET` are able to do something similar.
 
+- Using **cookies**: <br>
+You could also consider using **cookies**, which are an interesting options to retrieve informations some time later.
+
+>**W3Schools.com** <br>
+*A cookie is often used to identify a user. A cookie is a small file that the server embeds on the user's computer. Each time the same computer requests a page with a browser, it will send the cookie too. With PHP, you can both create and retrieve cookie values.* 
+
+An example from W3Schools:
+```php
+<?php
+$cookie_name = "user";
+$cookie_value = "John Doe";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+?>
+
+<html>
+    <body>
+
+    <?php
+    if(!isset($_COOKIE[$cookie_name])) {
+    echo "Cookie named '" . $cookie_name . "' is not set!";
+    } else {
+    echo "Cookie '" . $cookie_name . "' is set!<br>";
+    echo "Value is: " . $_COOKIE[$cookie_name];
+    }
+    ?>
+
+    </body>
+</html>
+```
+
 ### Sanitizing
 
 Before doing anything with the inputs given by a user, you must **check if the datas are valid**, that they **doesn't contains code injections** and others non-authorized content.
