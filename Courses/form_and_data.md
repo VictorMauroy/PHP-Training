@@ -94,3 +94,28 @@ $name = $_GET["name"]; // The form method was of type GET
 ```
 It is also possible to interact with `$_REQUEST`.
 
+Another usefull global variable is `$_SESSION` which is quite secure. Mostly used to transfer data from one page to another.
+> index.php
+```php
+session_start(); // Required for $_SESSION to work.
+
+$_SESSION["name"] = "client_name";
+```
+> action.php
+```php
+session_start();
+
+$client_name = $_SESSION["name"];
+```
+Note that `$_POST` and `$_GET` are able to do something similar.
+
+### Sanitizing
+
+Before doing anything with the inputs given by a user, you must **check if the datas are valid**, that they **doesn't contains code injections** and others non-authorized content.
+
+### Basics functions
+
+- **htmlspecialchars**
+```php
+$name = $_POST
+```
