@@ -147,5 +147,32 @@ Before doing anything with the inputs given by a user, you must **check if the d
 
 - **htmlspecialchars**
 ```php
-$name = $_POST
+$name = $_POST["name"];
+$sanitized_name = htmlspecialchars($name);
+
+echo "Your name is $sanitized_name";
 ```
+
+>**eitca.org** <br> By passing `$name` through the `htmlspecialchars` function, any special characters are converted to their HTML entity equivalents. This ensures that even if the user enters a string containing HTML tags or code, it will be displayed as plain text rather than being executed by the browser.
+
+- **filter_var**
+
+As its name say, that function is used to filter a variable. **You must choose a** [**filter**](https://www.php.net/manual/en/filter.filters.php) to apply.
+
+There are two types of filters that are usually used:
+- **Validate filters**
+```php
+// Check if email is a valid address
+$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+```
+Return a boolean.
+
+- **Sanitize filters**
+```php
+// Remove all illegal characters from email
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+```
+Return the filtered data on success, false on failure.
+
+### Regular expressions
+You should consider checking the [Official php **Regex doc**](https://www.php.net/manual/en/book.pcre.php)
