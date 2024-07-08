@@ -18,7 +18,7 @@ For now, you shouldn't care about the php part. You can either use a **POST** me
 Usually, peoples will **prefer using a POST method** because it had a lot more security for the data transfer. <br />
 Click here if you want to Learn more about [HTML form](https://developer.mozilla.org/fr/docs/Web/HTML/Element/form).
 
-`action` hasn't been set because there is already an input of type submit that will trigger a php script (on the page). Therefore, it could be set if the script is at another URL. I guess.
+`action` hasn't been set because there is already an input of type submit that will trigger a php script (on the page). Therefore, it could be set if the script is at another URL. I guess.  
 
 ### Receiving the datas
 Once your submitted your form, the php part of your script will be able to receive them.
@@ -67,3 +67,30 @@ Adding that line will **grant your script the ability to execute the code** when
 <br>
 
 Note that it is **only the case if the script is inside the same file as your html**. Otherwise, `action="action.php"` inside your form definition will trigger a script.
+
+
+## Checking the datas
+
+### Access the datas
+
+First, remember to set **a name for each inputs**.
+```html
+<form action="" method="POST">
+    <input type="text" name="title" />
+</form>
+```
+
+```php
+$title = $_POST["title"];
+```
+
+Then, in order to retrieve the datas, you must **save them inside variables** or **access global variables**.
+
+- Retrieving data with global variables:
+```php
+$name = $_POST["name"]; // The form method was of type POST
+
+$name = $_GET["name"]; // The form method was of type GET
+```
+It is also possible to interact with `$_REQUEST`.
+
