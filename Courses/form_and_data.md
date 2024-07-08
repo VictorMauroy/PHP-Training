@@ -20,7 +20,7 @@ Click here if you want to Learn more about [HTML form](https://developer.mozilla
 
 `action` hasn't been set because there is already an input of type submit that will trigger a php script (on the page). Therefore, it could be set if the script is at another URL. I guess.  
 
-### Receiving the datas
+### Receiving the data
 Once your submitted your form, the php part of your script will be able to receive them.
 
 **1) Having your php code at the same place as your html**
@@ -55,7 +55,7 @@ You can either add a `.php` extension instead of the `.html` to your file and ad
 
 I won't show how to use the GET method. <br>
 
-### Executing your script when receiving the datas
+### Executing your script when receiving the data
 Once all is set, you should be able to receive your data inside your php script. You only need one more thing for it to work:
 ```php
 <?php 
@@ -69,9 +69,7 @@ Adding that line will **grant your script the ability to execute the code** when
 Note that it is **only the case if the script is inside the same file as your html**. Otherwise, `action="action.php"` inside your form definition will trigger a script.
 
 
-## Checking the datas
-
-### Access the datas
+## Access and transfer the data
 
 First, remember to set **a name for each inputs**.
 ```html
@@ -84,7 +82,7 @@ First, remember to set **a name for each inputs**.
 $title = $_POST["title"];
 ```
 
-Then, in order to retrieve the datas, you must **save them inside variables** or **access global variables**.
+Then, in order to retrieve the data, you must **save them inside variables** or **access global variables**.
 
 - Retrieving data with global variables:
 ```php
@@ -139,9 +137,11 @@ setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1
 </html>
 ```
 
-### Sanitizing
+## Sanitizing
 
-Before doing anything with the inputs given by a user, you must **check if the datas are valid**, that they **doesn't contains code injections** and others non-authorized content.
+Before doing anything with the inputs given by a user, you must **check if the data are valid**, that they **doesn't contains code injections** and others non-authorized content.
+
+### Checking the data type
 
 ### Basics functions
 
