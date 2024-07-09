@@ -162,17 +162,22 @@ As its name say, that function is used to filter a variable. **You must choose a
 There are two types of filters that are usually used:
 - **Validate filters**
 ```php
-// Check if email is a valid address
+// Check if $email is a valid address
 $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 ```
-Return a boolean.
+Return the data if they are valid, false otherwise.
 
 - **Sanitize filters**
 ```php
-// Remove all illegal characters from email
+// Remove all illegal characters from $email
 $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 ```
 Return the filtered data on success, false on failure.
 
+- **Other useful functions**
+    - `strlen` allows to check the length of a string
+    - `trim` allows to remove the white space at the beginning and end of a string. 
+
 ### Regular expressions
 You should consider checking the [Official php **Regex doc**](https://www.php.net/manual/en/book.pcre.php)
+
