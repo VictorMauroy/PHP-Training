@@ -1,5 +1,9 @@
 # Form validation and data filtering
 
+**Useful links**
+- [PHP Form validation: step by step](https://mailtrap.io/blog/php-form-validation/)
+- [Regex functions in PHP](https://www.php.net/manual/en/book.pcre.php)
+
 ## Validate a form
 
 ### Form creation in html (basics)
@@ -142,6 +146,17 @@ setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1
 Before doing anything with the inputs given by a user, you must **check if the data are valid**, that they **doesn't contains code injections** and others non-authorized content.
 
 ### Checking the data type
+I won't lose time here, consider checking the following link: [Variables management functions](https://www.php.net/manual/fr/ref.var.php)
+
+The functions to check a type are pretty straightforward:
+- `is_numeric`, `is_int`, `is_string`, `is_array` etc. are the basics.
+- `is_null`, `is_object`, `is_callable`, `is_iterable` could be interesting to use.
+- `print_r($var)` shows informations about a variable. `var_dump` is slightly different.
+- `settype` add a type to a variable. 
+- `gettype` get the type of a variable
+- `unset` destroy a variable.
+- `strval` convert a variable to the string type.
+- `intval` convert a variable to the int type.
 
 ### Basics functions
 
