@@ -177,6 +177,26 @@ Return the filtered data on success, false on failure.
 - **Other useful functions**
     - `strlen` allows to check the length of a string
     - `trim` allows to remove the white space at the beginning and end of a string. 
+    - `stripslashes` allows to remove back slashes. Double back slashes are converted to mono back slashes.
+    - `isset` checks if a variable is defined and not null. 
+    - `empty` checks if a variable doesn't exist or is equal to false or zero
+
+Here is a quick example from the official documentation.
+```php
+<?php
+$var = 0;
+                   
+// Évaluée à vrai car $var est vide
+if (empty($var)) {
+  echo '$var vaut soit 0, vide, ou pas définie du tout';
+}
+                   
+// Évaluée à vrai car $var est définie
+if (isset($var)) {
+  echo '$var est définie même si elle est vide';
+}
+?>
+```
 
 ### Regular expressions
 You should consider checking the [Official php **Regex doc**](https://www.php.net/manual/en/book.pcre.php)
