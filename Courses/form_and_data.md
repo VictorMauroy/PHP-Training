@@ -219,6 +219,18 @@ You should consider checking the [Official php **Regex doc**](https://www.php.ne
 Let's talk about the most used:
 - **preg_filter** and **preg_replace**
 
+**Search for a pattern** inside a string or array **and replace by a given replacement string**. It returns a new string or array.
+
+They both do something quite similar. The main difference is the result which is returned: if no matches are found, *filter* will returns an empty array or a string while *replace* will return the array/string without replacements.
+
+```php
+ $pattern = "/thi+s/"; //The word this with 0 or more 'i'
+ $sentence = "Ths is not thiiiiiiiis!";
+ $replacement = "This"
+
+$new_sentence = preg_replace($pattern, $replacement, $sentence);
+// => "This is not this!"
+```
 
 - **[preg_match](https://www.php.net/manual/en/function.preg-match.php)**
 
@@ -239,7 +251,7 @@ else {
 - **[preg_split](https://www.php.net/manual/en/function.preg-split.php)**
 
 **Split a string by a given regular expression**. 
-<br> 
+
 Return an array containing the substrings of the subject that has been split.
 
 ```php
