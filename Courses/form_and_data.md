@@ -220,13 +220,13 @@ Let's talk about the most used:
 - **preg_filter** and **preg_replace**
 
 
-- **preg_match**
+- **[preg_match](https://www.php.net/manual/en/function.preg-match.php)**
 
 It allows you to find **whether or not a given string match a specific pattern**. <br> 
 It will `return 1 if yes`, `0 otherwise` and false if the check failed.
 ```php
  $pattern = "/[aeiou]/i"; //Check for vowels
- $word = "I'm your string!";
+ $word = "string!";
 
 if(preg_match($pattern, $word)) {
   print("Your word contains a vowel");
@@ -236,4 +236,15 @@ else {
 }
 ```
 
-- **preg_split**
+- **[preg_split](https://www.php.net/manual/en/function.preg-split.php)**
+
+**Split a string by a given regular expression**. 
+<br> 
+Return an array containing the substrings of the subject that has been split.
+
+```php
+ $pattern = "/[\s,]+/"; //Find any number of whitespaces or commas characters
+ $sentence = "This is not the end!";
+
+$words = preg_split($pattern, $sentence);
+```
