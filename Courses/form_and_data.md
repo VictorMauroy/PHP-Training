@@ -214,5 +214,26 @@ if (isset($var)) {
 ```
 
 ### Regular expressions
-You should consider checking the [Official php **Regex doc**](https://www.php.net/manual/en/book.pcre.php)
+You should consider checking the [Official php **Regex doc**](https://www.php.net/manual/en/book.pcre.php). You can also learn how to do regex with that link: [**Pattern and Flags**](https://javascript.info/regexp-introduction).
 
+Let's talk about the most used:
+- **preg_filter** and **preg_replace**
+
+
+- **preg_match**
+
+It allows you to find **whether or not a given string match a specific pattern**. <br> 
+It will `return 1 if yes`, `0 otherwise` and false if the check failed.
+```php
+ $pattern = "/[aeiou]/i"; //Check for vowels
+ $word = "I'm your string!";
+
+if(preg_match($pattern, $word)) {
+  print("Your word contains a vowel");
+} 
+else {
+  print("Your word doens't contains any vowels");
+}
+```
+
+- **preg_split**
