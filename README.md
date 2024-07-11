@@ -107,6 +107,17 @@ There is, as in C#, a quick way to cast a type for a variable.
   return (int) $a * (int) $b;
 ```
 
+**Useful functions**:
+
+The functions to check a type are pretty straightforward:
+- `is_numeric`, `is_int`, `is_string`, `is_array` etc. are the basics.
+- `is_null`, `is_object`, `is_callable`, `is_iterable` could be interesting to use.
+- `print_r($var)` shows informations about a variable. `var_dump` is slightly different.
+- `settype` add a type to a variable. 
+- `gettype` get the type of a variable
+- `unset` destroy a variable.
+- `strval` convert a variable to the string type.
+- `intval` convert a variable to the int type.
 
 ## Les classes
 
