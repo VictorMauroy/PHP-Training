@@ -2,12 +2,12 @@
 //$arg = $argv[1];
 //echo isTrue($arg);
 
-var_dump((string)false);
+var_dump(solution("abc\n", "abc"));
 
-function isTrue(int $number) : string{
-    if($number % 2 === 0){
-        return "Even";
-    } else {
-        return "Odd";
-    }
+function solution($str, $ending) {
+    $pattern = '/(' . preg_quote($ending) . ')$/';
+    print($pattern . "\n");
+    print($str . " is str and " . $ending . " is the ending." . "\n" . "\n");
+    $result = preg_match($pattern, trim($str));
+    return (bool) $result;
 }
