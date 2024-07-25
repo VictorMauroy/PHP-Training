@@ -39,3 +39,31 @@ function inArray($array1, $array2) {
     sort($result); // Sort in ascending order
     return $result;
 }
+
+/* Interesting solutions by others: */
+
+// The use of array_filter with the "use" keyword.
+function inArray2($a1, $a2) {
+    $r = array_filter($a1, function($v) use ($a2) {
+        foreach ($a2 as $v2) {
+            if (strpos($v2, $v) !== false) return true;
+        }
+        return false;
+    });
+    sort($r);
+    return $r;
+}
+
+// The use of implode and foreach
+function inArray3($array1, $array2) {
+    // your code
+    $str = implode(' ',$array2);
+    $newArr = [];
+    foreach($array1 as $k=>$v){
+      if(substr_count($str,$v)>0){
+        $newArr[] = $v;
+      }
+    }
+    sort($newArr);
+    return $newArr;
+}
