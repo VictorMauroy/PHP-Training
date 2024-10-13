@@ -166,7 +166,7 @@ class Survivor {
     return $this->_name; 
   }
   private function setName($new_name){ 
-    return $this->_name = $new_name; 
+    $this->_name = $new_name; 
   }
 
   public function __construct($name) 
